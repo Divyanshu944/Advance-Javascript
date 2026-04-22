@@ -22,21 +22,62 @@
 //     }
 // })
 
+// Change & click event  
 
-let btn = document.querySelector("#btn")
-let filnip = document.querySelector("#file")
+// let btn = document.querySelector("#btn")
+// let filnip = document.querySelector("#file")
 
 
-btn.addEventListener("click", function(dets){
-    filnip.click()
+// btn.addEventListener("click", function(dets){
+//     filnip.click()
+// })
+
+
+// filnip.addEventListener("change", function(dets){
+// const file = dets.target.files[0]
+//     if(file){
+//         btn.textContent = file.name
+//     }
+// })
+
+// form submiting using eventlistner.
+
+let main = document.querySelector("#main")
+let form = document.querySelector("form")
+let inputs = document.querySelectorAll("input")
+
+
+form.addEventListener("submit", function(det){
+det.preventDefault()
+    
+let card = document.createElement("div")
+card.classList.add("card")
+
+let profile = document.createElement("div")
+profile.classList.add("pic")
+
+let img = document.createElement("img")
+img.setAttribute("src", inputs[3].value)
+
+let name = document.createElement("name")
+name.textContent = inputs[0].value
+let age = document.createElement("age")
+age.textContent = inputs[1].value
+let email = document.createElement("email")
+email.textContent = inputs[2].value
+
+profile.appendChild(img);
+card.appendChild(profile);
+card.appendChild(name)
+card.appendChild(age)
+card.appendChild(email)
+main.appendChild(card)
+
+inputs.forEach(function (inp) {
+    if(inp.type !== "submit"){
+        inp.value = ""
+    }
 })
 
 
-filnip.addEventListener("change", function(dets){
-const file = dets.target.files[0]
-    if(file){
-        btn.textContent = file.name
-    }
-    
-    
 })
