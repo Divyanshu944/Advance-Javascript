@@ -31,5 +31,5 @@ if(!passwardlan){
 if (isvalid) {
     form.reset(); 
 }
-
+ 
 })
